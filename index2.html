@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .row {
+        display: flex;
+        justify-content:stretch;
+        justify-items: center;
+        width:80%;
+      }
+      .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 60%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+      }
+      .active,
+      .accordion:hover {
+        background-color: rgb(235, 105, 105);
+      }
+      .accordion:after {
+        content: "\002B";
+        color: rgb(127, 127, 127);
+        font-weight: bold;
+        float: right;
+        margin-left: 6px;
+      }
+      .active:after {
+        content: "\2212";
+      }
+      .panel {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        width: 60%;
+        text-align: justify;
+        font-family:sans-serif;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div>
+        <button class="accordion">Economia de Alemania</button>
+        <div class="panel">
+          La economía de Alemania es una de las más grandes y sólidas del mundo.
+          Es el cuarto país más grande en términos de PIB y es considerado como
+          una de las principales potencias económicas de Europa. La economía
+          alemana está basada en una combinación de industria y servicios, con
+          una gran énfasis en la exportación. La industria automotriz y la
+          maquinaria son importantes sectores de la economía alemana, así como
+          la química, la electrónica y la tecnología de la información. La tasa
+          de desempleo en Alemania es relativamente baja en comparación con
+          otros países de la Unión Europea.
+        </div>
+        <button class="accordion">Historia dealemania</button>
+        <div class="panel">
+          La historia de Alemania se ha caracterizado por una gran complejidad,
+          a lo largo de los siglos, el territorio que hoy en día se conoce como
+          Alemania ha sido controlado por una variedad de reinos, estados,
+          naciones e imperios. En el siglo XIX, las tensiones entre los estados
+          alemanes y las luchas por el poder llevaron a la unificación de
+          Alemania bajo el liderazgo de Prusia en 1871, dando lugar al Imperio
+          Alemán. Durante el siglo XX, Alemania sufrió dos guerras mundiales y
+          su historia estuvo marcada por el Holocausto y el nazismo. En 1989,
+          cayó el Muro de Berlín y en 1990, se unificaron las dos Alemanias.
+          Desde entonces, Alemania se ha convertido en una de las principales
+          potencias económicas y políticas de Europa y ha desempeñado un papel
+          importante en la Unión Europea.
+        </div>
+        <button class="accordion">geografia de Alemania</button>
+        <div class="panel">
+          Alemania es un país situado en Europa central, con fronteras con el
+          mar del Norte, Dinamarca, Polonia, República Checa, Austria, Suiza,
+          Francia, Luxemburgo, Bélgica y los Países Bajos. La geografía de
+          Alemania es diversa, con montañas, llanuras, ríos y un clima templado
+          y húmedo. La biodiversidad del país es rica, con una variedad de
+          ecosistemas y especies animales y vegetales.
+        </div>
+        <button class="accordion">gente importante de Alemania</button>
+        <div class="panel">
+          Hay muchas personas importantes en la historia de Alemania, aquí te
+          menciono algunos de los más destacados: Johann Sebastian Bach:
+          compositor y organista alemán del barroco, considerado uno de los más
+          grandes compositores de todos los tiempos. Albert Einstein: físico
+          teórico y lógico, cuyos trabajos revolucionaron la física y cambiaron
+          nuestra comprensión del universo. Johann Wolfgang von Goethe: poeta,
+          novelista, científico y estadista, considerado uno de los escritores
+          más importantes de la literatura alemana y una de las principales
+          figuras de la Ilustración. Martin Luther: teólogo, sacerdote y líder
+          protestante, cuyas ideas y escritos contribuyeron en gran medida a la
+          Reforma protestante y a la separación de la Iglesia Católica. Wolfgang
+          Amadeus Mozart: compositor austriaco, pero considerado uno de los más
+          grandes compositores de la historia de la música. Frederick II: Rey de
+          Prusia y líder militar, conocido como "el Grande", quien lideró a
+          Prusia en un proceso de unificación y modernización que llevó a la
+          creación del Imperio Alemán. Adolf Hitler: líder del partido nazi y
+          canciller de Alemania, responsable de la Segunda Guerra Mundial y el
+          Holocausto. Willy Brandt: líder del partido socialdemócrata alemán y
+          canciller de Alemania, quien lideró una política de distensión y
+          normalización con los países del Este de Europa. Angela Merkel:
+          política y científica, quien se convirtió en la primera mujer
+          canciller de Alemania en 2005, y lideró el país durante más de una
+          década.
+        </div>
+      </div>
+      <div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5131526.1618163455!2d6.035328380669629!3d51.09687229882934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479a721ec2b1be6b%3A0x75e85d6b8e91e55b!2sAlemania!5e0!3m2!1ses!2sco!4v1674237489072!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
